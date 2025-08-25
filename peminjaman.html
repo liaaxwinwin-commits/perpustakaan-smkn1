@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peminjaman Buku - SMK Negeri 1 Babat Supat</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Merriweather&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="frame">
+    <div class="container">
+ 
+      <header class="header">
+    <h1 class="judul-header">SMK NEGERI 1 BABAT SUPAT</h1>
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+   </header>
+
+      <nav id="navbar">
+        <ul>
+          <li><a href="beranda.html">Beranda</a></li>
+          <li><a href="koleksi.html">Koleksi Buku</a></li>
+          <li><a href="anggota.html">Anggota</a></li>
+          <li><a href="peminjaman.html" class="active">Peminjaman Buku</a></li>
+          <li><a href="laporan.html">Laporan</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+          <li class="nav-logout"><a href="#" onclick="logout()">Logout</a></li>
+        </ul>
+      </nav>
+
+      <main>
+        <section class="peminjaman">
+          <div class="welcome-box">
+            <h2>TABEL PEMINJAMAN BUKU</h2>
+          </div>
+
+          <div class="filter-box">
+            <label>Dari Tanggal <input type="date" id="dariTanggal"></label>
+            <label>Ke Tanggal <input type="date" id="keTanggal"></label>
+            <button class="btn-filter" onclick="filterTabel()">Cari</button>
+          </div>
+
+          <div class="table-wrapper">
+            <table class="table-peminjaman">
+              <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>Kode</th>
+                  <th>Nama</th>
+                  <th>Tanggal Pinjam</th>
+                  <th>Batas Kembali</th>
+                  <th>Cetak</th>
+                  <th>Pengembalian</th>
+                  <th>Rusak/Hilang</th>
+                  <th>Perpanjangan</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>PJM001</td>
+                  <td>Desvita Hartanti (ANG-0001)</td>
+                  <td>2025-08-01</td>
+                  <td>2025-08-08</td>
+                  <td><button class="btn purple"><i class="fas fa-print"></i></button></td>
+                  <td><button class="btn green"><i class="fas fa-check"></i></button></td>
+                  <td><button class="btn red"><i class="fas fa-times"></i></button></td>
+                  <td><button class="btn blue"><i class="fas fa-undo"></i></button></td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>PJM002</td>
+                  <td>Henry Kusmiwati (ANG-0002)</td>
+                  <td>2025-08-02</td>
+                  <td>2025-08-09</td>
+                  <td><button class="btn purple"><i class="fas fa-print"></i></button></td>
+                  <td><button class="btn green"><i class="fas fa-check"></i></button></td>
+                  <td><button class="btn red"><i class="fas fa-times"></i></button></td>
+                  <td><button class="btn blue"><i class="fas fa-undo"></i></button></td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>PJM003</td>
+                  <td>Raja Namira (ANG-0003)</td>
+                  <td>2025-08-03</td>
+                  <td>2025-08-10</td>
+                  <td><button class="btn purple"><i class="fas fa-print"></i></button></td>
+                  <td><button class="btn green"><i class="fas fa-check"></i></button></td>
+                  <td><button class="btn red"><i class="fas fa-times"></i></button></td>
+                  <td><button class="btn blue"><i class="fas fa-undo"></i></button></td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>PJM004</td>
+                  <td>Siti Aminah (ANG-0004)</td>
+                  <td>2025-08-04</td>
+                  <td>2025-08-11</td>
+                  <td><button class="btn purple"><i class="fas fa-print"></i></button></td>
+                  <td><button class="btn green"><i class="fas fa-check"></i></button></td>
+                  <td><button class="btn red"><i class="fas fa-times"></i></button></td>
+                  <td><button class="btn blue"><i class="fas fa-undo"></i></button></td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>PJM005</td>
+                  <td>Budi Santoso (ANG-0005)</td>
+                  <td>2025-08-05</td>
+                  <td>2025-08-12</td>
+                  <td><button class="btn purple"><i class="fas fa-print"></i></button></td>
+                  <td><button class="btn green"><i class="fas fa-check"></i></button></td>
+                  <td><button class="btn red"><i class="fas fa-times"></i></button></td>
+                  <td><button class="btn blue"><i class="fas fa-undo"></i></button></td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>PJM006</td>
+                  <td>Putri Melati (ANG-0006)</td>
+                  <td>2025-08-06</td>
+                  <td>2025-08-13</td>
+                  <td><button class="btn purple"><i class="fas fa-print"></i></button></td>
+                  <td><button class="btn green"><i class="fas fa-check"></i></button></td>
+                  <td><button class="btn red"><i class="fas fa-times"></i></button></td>
+                  <td><button class="btn blue"><i class="fas fa-undo"></i></button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <p>&copy; Copyright 2025 SMK Negeri 1 Babat Supat</p>
+      </footer>
+    </div>
+  </div> 
+
+  <script>
+    function filterTabel() {
+      let dari = document.getElementById("dariTanggal").value;
+      let ke = document.getElementById("keTanggal").value;
+      let rows = document.querySelectorAll(".table-peminjaman tbody tr");
+
+      let dariDate = dari ? new Date(dari) : null;
+      let keDate = ke ? new Date(ke) : null;
+
+      rows.forEach(row => {
+        let tanggalPinjam = row.cells[3].innerText;
+        let datePinjam = new Date(tanggalPinjam);
+        let tampil = true;
+
+        if (dariDate && datePinjam < dariDate) tampil = false;
+        if (keDate && datePinjam > keDate) tampil = false;
+
+        row.style.display = tampil ? "" : "none";
+      });
+    }
+  </script>
+
+<script>
+  function toggleMenu() {
+    const nav = document.querySelector("nav ul");
+    nav.classList.toggle("show");
+  }
+  </script>
+  
+  <script>
+  if (localStorage.getItem("isLoggedIn") !== "true") {
+    window.location.href = "index.html";
+  }
+
+  function logout() {
+    localStorage.removeItem("isLoggedIn");
+    window.location.href = "index.html";
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Perpustakaan</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-title">
+      <h1>Perpustakaan Digital</h1>
+      <h2>SMK Negeri 1 Babat Supat</h2>
+    </div>
+
+    <form onsubmit="return login(event)" class="login-form">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" placeholder="Masukkan username" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Masukkan password" required>
+
+      <button type="submit" class="btn-login">Login</button>
+    </form>
+
+    <p class="footer-text">&copy; Copyright 2025 SMK Negeri 1 Babat Supat</p>
+  </div>
+
+  <script>
+    function login(event) {
+      event.preventDefault();
+
+      const user = document.getElementById("username").value;
+      const pass = document.getElementById("password").value;
+
+      if (user && pass) {
+        localStorage.setItem("isLoggedIn", "true");
+        window.location.href = "beranda.html";
+      } else {
+        alert("Username & Password wajib diisi!");
+      }
+    }
+
+    if (localStorage.getItem("isLoggedIn") === "true") {
+      window.location.replace = "beranda.html";
+    }
+  </script>
+</body>
+</html>

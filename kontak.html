@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontak - Perpustakaan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Merriweather&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="frame">
+    <div class="container">
+
+      <header class="header">
+    <h1 class="judul-header">SMK NEGERI 1 BABAT SUPAT</h1>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </header>
+
+      <nav id="navbar">
+        <ul>
+          <li><a href="beranda.html">Beranda</a></li>
+          <li><a href="koleksi.html">Koleksi Buku</a></li>
+          <li><a href="anggota.html">Anggota</a></li>
+          <li><a href="peminjaman.html">Peminjaman</a></li>
+          <li><a href="laporan.html">Laporan</a></li>
+          <li><a href="kontak.html" class="active">Kontak</a></li>
+          <li class="nav-logout"><a href="#" onclick="logout()">Logout</a></li>
+        </ul>
+      </nav>
+
+      <main>
+        <section class="contact-section">
+          <div class="contact-container">
+            
+            <div class="contact-info">
+              <h2>Hubungi Kami</h2>
+              <p class="intro">Kamu dapat menghubungi kami melalui informasi di bawah ini.</p>
+              <p><i class="fas fa-envelope"></i> Perpustakaan@gmail.com</p>
+              <p><i class="fas fa-phone"></i> 0812-3456-7890</p>
+              <p><i class="fas fa-map-marker-alt"></i> SMKN 1 Babat Supat, Jl. Pendidikan No.1</p>
+            </div>
+
+            <div class="contact-form">
+              <div id="pesanSukses" class="message-box">
+                Terima kasih! Pesan kamu sudah dikirim.
+              </div>
+
+              <form id="kontakForm" action="#" method="post">
+                <label for="nama">Nama Lengkap <span class="required">*</span></label>
+                <input type="text" id="nama" name="nama" placeholder="Nama Lengkap" required />
+
+                <label for="email">Email <span class="required">*</span></label>
+                <input type="email" id="email" name="email" placeholder="Email" required />
+
+                <label for="pesan">Pesan <span class="required">*</span></label>
+                <textarea id="pesan" name="pesan" placeholder="Pesan" rows="6" required></textarea>
+
+                <button type="submit">Kirim Pesan</button>
+              </form>
+            </div>
+          </div>
+        </section>
+      </main>
+        
+      <footer>
+        <p>&copy; Copyright 2025 SMK Negeri 1 Babat Supat</p>
+      </footer>
+
+      <script>
+        document.getElementById("kontakForm").addEventListener("submit", function(event) {
+          event.preventDefault(); 
+
+          const pesanSukses = document.getElementById("pesanSukses");
+          pesanSukses.style.display = "block";
+
+          this.reset();
+
+          setTimeout(() => {
+            pesanSukses.style.display = "none";
+          }, 5000);
+        });
+      </script>
+
+      <script>
+  function toggleMenu() {
+    const nav = document.querySelector("nav ul");
+    nav.classList.toggle("show");
+  }
+  </script>
+
+      <script>
+  if (localStorage.getItem("isLoggedIn") !== "true") {
+    window.location.href = "index.html";
+  }
+
+  function logout() {
+    localStorage.removeItem("isLoggedIn");
+    window.location.href = "index.html";
+  }
+</script>
+
+
+    </div>
+  </div>
+</body>
+</html>

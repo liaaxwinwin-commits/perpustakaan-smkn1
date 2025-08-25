@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Koleksi Buku - SMK Negeri 1 Babat Supat</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Merriweather&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="frame">
+    <div class="container">
+
+      <header class="header">
+    <h1 class="judul-header">SMK NEGERI 1 BABAT SUPAT</h1>
+    
+   <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+   </header>
+
+      <nav id="navbar">
+        <ul>
+          <li><a href="beranda.html">Beranda</a></li>
+          <li><a href="koleksi.html" class="active">Koleksi Buku</a></li>
+          <li><a href="anggota.html">Anggota</a></li>
+          <li><a href="peminjaman.html">Peminjaman Buku</a></li>
+          <li><a href="laporan.html">Laporan</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+          <li class="nav-logout"><a href="#" onclick="logout()">Logout</a></li>
+        </ul>
+      </nav>
+
+      <main>
+        <section class="koleksi">
+          <div class="welcome-box">
+            <h2>TABEL KOLEKSI BUKU</h2>
+          </div>
+
+          <div class="search-box">
+            <label for="cariBuku">Judul Buku:</label>
+            <input id="cariBuku" type="text" placeholder="Ex. Matematika, Bahasa Indonesia…" onkeyup="searchTable()">
+            <button type="button" onclick="searchTable()">Cari</button>
+          </div>
+
+          <div class="table-wrapper">
+            <table class="table-koleksi" id="koleksiTable">
+              <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>Kode Buku</th>
+                  <th>Judul</th>
+                  <th>Pengarang</th>
+                  <th>Penerbit</th>
+                  <th>Tahun</th>
+                  <th>Stok</th>
+                  <th>Pengaturan</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>B001</td>
+                  <td>Matematika</td>
+                  <td>Sugiyono</td>
+                  <td>Erlangga</td>
+                  <td>2022</td>
+                  <td>18</td>
+                  <td class="action">
+                    <a href="#" class="btn-action btn-edit" title="Edit"><i class="fas fa-pen"></i></a>
+                    <a href="#" class="btn-action btn-delete" title="Hapus"><i class="fas fa-trash"></i></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>B002</td>
+                  <td>Bahasa Indonesia</td>
+                  <td>Nurul Huda</td>
+                  <td>Gramedia</td>
+                  <td>2021</td>
+                  <td>14</td>
+                  <td class="action">
+                    <a href="#" class="btn-action btn-edit" title="Edit"><i class="fas fa-pen"></i></a>
+                    <a href="#" class="btn-action btn-delete" title="Hapus"><i class="fas fa-trash"></i></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>B003</td>
+                  <td>Produktif TKJ Jaringan Dasar</td>
+                  <td>Wahyudi</td>
+                  <td>Andi Publisher</td>
+                  <td>2020</td>
+                  <td>10</td>
+                  <td class="action">
+                    <a href="#" class="btn-action btn-edit" title="Edit"><i class="fas fa-pen"></i></a>
+                    <a href="#" class="btn-action btn-delete" title="Hapus"><i class="fas fa-trash"></i></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>B004</td>
+                  <td>Akuntansi Dasar</td>
+                  <td>Sri Wahyuni</td>
+                  <td>Graha Ilmu</td>
+                  <td>2019</td>
+                  <td>12</td>
+                  <td class="action">
+                    <a href="#" class="btn-action btn-edit" title="Edit"><i class="fas fa-pen"></i></a>
+                    <a href="#" class="btn-action btn-delete" title="Hapus"><i class="fas fa-trash"></i></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>B005</td>
+                  <td>Sejarah Indonesia</td>
+                  <td>Rizky Firmansyah</td>
+                  <td>Depdikbud</td>
+                  <td>2021</td>
+                  <td>20</td>
+                  <td class="action">
+                    <a href="#" class="btn-action btn-edit" title="Edit"><i class="fas fa-pen"></i></a>
+                    <a href="#" class="btn-action btn-delete" title="Hapus"><i class="fas fa-trash"></i></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>B006</td>
+                  <td>Dasar Desain Grafis</td>
+                  <td>Agus Pratama</td>
+                  <td>Multimedia Press</td>
+                  <td>2023</td>
+                  <td>7</td>
+                  <td class="action">
+                    <a href="#" class="btn-action btn-edit" title="Edit"><i class="fas fa-pen"></i></a>
+                    <a href="#" class="btn-action btn-delete" title="Hapus"><i class="fas fa-trash"></i></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <p>&copy; Copyright 2025 SMK Negeri 1 Babat Supat</p>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    function searchTable() {
+      let input = document.getElementById("cariBuku").value.toLowerCase();
+      let table = document.getElementById("koleksiTable");
+      let rows = table.getElementsByTagName("tr");
+
+      for (let i = 1; i < rows.length; i++) { 
+        let cells = rows[i].getElementsByTagName("td");
+        let match = false;
+
+        for (let j = 0; j < cells.length; j++) {
+          if (cells[j].innerText.toLowerCase().includes(input)) {
+            match = true;
+            break;
+          }
+        }
+
+        rows[i].style.display = match ? "" : "none";
+      }
+    }
+  </script>
+
+  <script>
+  function toggleMenu() {
+    const nav = document.querySelector("nav ul");
+    nav.classList.toggle("show");
+  }
+  </script>
+
+  <script>
+  if (localStorage.getItem("isLoggedIn") !== "true") {
+    window.location.href = "index.html";
+  }
+
+  function logout() {
+    localStorage.removeItem("isLoggedIn");
+    window.location.href = "index.html";
+  }
+</script>
+</body>
+</html>

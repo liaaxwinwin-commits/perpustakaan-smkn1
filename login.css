@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@400;500&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #a8dadc, #457b9d);
+}
+
+/* Judul halaman login */
+.login-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-title h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 45px;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.login-title h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 34px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 3px 0 10px;
+  line-height: 1.2;
+}
+
+/* Kotak login */
+.login-container {
+  background: #fff;
+  padding: 60px; 
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  width: 90%;        /* responsif, pakai persentase */
+  max-width: 600px;  /* batas maksimal */
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Form */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  font-size: 20px;
+}
+
+.login-form label {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #333;
+  font-size: 20px;
+}
+
+.login-form input {
+  padding: 18px; 
+  margin-bottom: 22px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  outline: none;
+  transition: 0.3s;
+  font-size: 20px;
+}
+
+.login-form input:focus {
+  border-color: #457b9d;
+  box-shadow: 0 0 8px rgba(69,123,157,0.5);
+}
+
+/* Tombol login */
+.btn-login {
+  padding: 18px;
+  background: #1d3557;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.btn-login:hover {
+  background: #457b9d;
+}
+
+/* Footer text */
+.footer-text {
+  margin-top: 22px;
+  font-size: 18px;
+  color: #666;
+}
+
+/* --- Responsif --- */
+@media (max-width: 768px) {
+  .login-container {
+    padding: 40px;
+  }
+
+  .login-title h1 {
+    font-size: 32px;
+  }
+
+  .login-title h2 {
+    font-size: 24px;
+  }
+
+  .login-form label,
+  .login-form input,
+  .btn-login {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    padding: 25px;
+  }
+
+  .login-title h1 {
+    font-size: 26px;
+  }
+
+  .login-title h2 {
+    font-size: 20px;
+  }
+
+  .login-form label,
+  .login-form input,
+  .btn-login {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .footer-text {
+    font-size: 14px;
+  }
+}

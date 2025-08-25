@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Laporan - SMK Negeri 1 Babat Supat</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Merriweather&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="frame">
+    <div class="container">
+
+      <header class="header">
+    <h1 class="judul-header">SMK NEGERI 1 BABAT SUPAT</h1>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </header>
+
+      <nav id="navbar">
+        <ul>
+          <li><a href="beranda.html">Beranda</a></li>
+          <li><a href="koleksi.html">Koleksi Buku</a></li>
+          <li><a href="anggota.html">Anggota</a></li>
+          <li><a href="peminjaman.html">Peminjaman Buku</a></li>
+          <li><a href="laporan.html" class="active">Laporan</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+          <li class="nav-logout"><a href="#" onclick="logout()">Logout</a></li>
+        </ul>
+      </nav>
+
+      <main>
+        <section class="welcome">
+          <div class="welcome-box">
+            <h2>LAPORAN PEMINJAMAN BUKU</h2>
+          </div>
+
+          <div class="filter-box">
+            <label>Dari Tanggal <input type="date" id="tglDari"></label>
+            <label>Ke Tanggal <input type="date" id="tglKe"></label>
+            <button class="btn-filter" id="btnFilter">Cari</button>
+          </div>
+
+          <div class="table-wrapper">
+            <table class="table-laporan" id="tabelLaporan">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nama Anggota</th>
+                <th>Judul Buku</th>
+                <th>Tgl Pinjam</th>
+                <th>Tgl Kembali</th>
+                <th>Status</th>
+                <th>Denda</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>001</td>
+                <td>Ahmad Fauzi</td>
+                <td>Matematika Dasar</td>
+                <td>2025-08-01</td>
+                <td>2025-08-08</td>
+                <td><span class="status-selesai">Selesai</span></td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>002</td>
+                <td>Siti Aminah</td>
+                <td>Sejarah Indonesia</td>
+                <td>2025-08-05</td>
+                <td>2025-08-12</td>
+                <td><span class="status-terlambat">Terlambat</span></td>
+                <td>Rp5.000</td>
+              </tr>
+              <tr>
+                <td>003</td>
+                <td>Budi Santoso</td>
+                <td>Fisika Modern</td>
+                <td>2025-08-10</td>
+                <td>-</td>
+                <td><span class="status-dipinjam">Dipinjam</span></td>
+                <td>-</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </main>
+
+      <footer>
+        <p>&copy; Copyright 2025 SMK Negeri 1 Babat Supat</p>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("btnFilter").addEventListener("click", function() {
+      let tglDari = document.getElementById("tglDari").value;
+      let tglKe = document.getElementById("tglKe").value;
+      let rows = document.querySelectorAll("#tabelLaporan tbody tr");
+
+      rows.forEach(row => {
+        let tglPinjam = row.cells[3].textContent;
+        if (tglDari && tglPinjam < tglDari) {
+          row.style.display = "none";
+        } else if (tglKe && tglPinjam > tglKe) {
+          row.style.display = "none";
+        } else {
+          row.style.display = "";
+        }
+      });
+    });
+  </script>
+
+  <script>
+  function toggleMenu() {
+    const nav = document.querySelector("nav ul");
+    nav.classList.toggle("show");
+  }
+  </script>
+
+  <script>
+  if (localStorage.getItem("isLoggedIn") !== "true") {
+    window.location.href = "index.html";
+  }
+
+  function logout() {
+    localStorage.removeItem("isLoggedIn");
+    window.location.href = "index.html";
+  }
+</script>
+</body>
+</html>

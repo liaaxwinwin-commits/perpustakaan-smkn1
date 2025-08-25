@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anggota - SMK Negeri 1 Babat Supat</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Merriweather&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="frame">
+    <div class="container">
+ 
+  <header class="header">
+    <h1 class="judul-header">SMK NEGERI 1 BABAT SUPAT</h1>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  </header>
+
+      <nav id="navbar">
+        <ul>
+          <li><a href="beranda.html">Beranda</a></li>
+          <li><a href="koleksi.html">Koleksi Buku</a></li>
+          <li><a href="anggota.html" class="active">Anggota</a></li>
+          <li><a href="peminjaman.html">Peminjaman Buku</a></li>
+          <li><a href="laporan.html">Laporan</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+          <li class="nav-logout"><a href="#" onclick="logout()">Logout</a></li>
+        </ul>
+      </nav>
+
+      <main>
+        <section class="anggota">
+          <div class="welcome-box">
+            <h2>TABEL ANGGOTA</h2>
+          </div>
+
+          <div class="search-box">
+            <label for="cariAnggota">Nama Anggota:</label>
+            <input id="cariAnggota" type="text" placeholder="Ex. Andi, Sinta…" onkeyup="searchAnggota()">
+            <button type="button" onclick="searchAnggota()">Cari</button>
+          </div>
+
+          <div class="table-wrapper">
+            <table class="table-anggota" id="anggotaTable">
+              <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>NIS</th>
+                  <th>Nama</th>
+                  <th>Kelas</th>
+                  <th>Alamat</th>
+                  <th>Pengaturan</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>2025-001</td>
+                  <td>Andi Pratama</td>
+                  <td>X RPL 1</td>
+                  <td>Jl. Melati No. 12</td>
+                  <td class="action">
+                    <a href="#" class="btn-action btn-edit" title="Edit"><i class="fas fa-pen"></i></a>
+                    <a href="#" class="btn-action btn-delete" title="Hapus"><i class="fas fa-trash"></i></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>2025-002</td>
+                  <td>Sinta Dewi</td>
+                  <td>XI AKL 2</td>
+                  <td>Jl. Kenanga No. 45</td>
+                  <td class="action">
+                    <a href="#" class="btn-action btn-edit" title="Edit"><i class="fas fa-pen"></i></a>
+                    <a href="#" class="btn-action btn-delete" title="Hapus"><i class="fas fa-trash"></i></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>2025-003</td>
+                  <td>Budi Santoso</td>
+                  <td>XII TKJ 1</td>
+                  <td>Jl. Merpati No. 7</td>
+                  <td class="action">
+                    <a href="#" class="btn-action btn-edit" title="Edit"><i class="fas fa-pen"></i></a>
+                    <a href="#" class="btn-action btn-delete" title="Hapus"><i class="fas fa-trash"></i></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>2025-004</td>
+                  <td>Rina Anggraini</td>
+                  <td>X RPL 2</td>
+                  <td>Jl. Cendana No. 23</td>
+                  <td class="action">
+                    <a href="#" class="btn-action btn-edit" title="Edit"><i class="fas fa-pen"></i></a>
+                    <a href="#" class="btn-action btn-delete" title="Hapus"><i class="fas fa-trash"></i></a>
+                  </td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>2025-005</td>
+                  <td>Dewi Lestari</td>
+                  <td>XI BDP 1</td>
+                  <td>Jl. Dahlia No. 5</td>
+                  <td class="action">
+                    <a href="#" class="btn-action btn-edit" title="Edit"><i class="fas fa-pen"></i></a>
+                    <a href="#" class="btn-action btn-delete" title="Hapus"><i class="fas fa-trash"></i></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+
+      <footer>
+        <p>&copy; Copyright 2025 SMK Negeri 1 Babat Supat</p>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    function searchAnggota() {
+      let input = document.getElementById("cariAnggota").value.toLowerCase();
+      let table = document.getElementById("anggotaTable");
+      let rows = table.getElementsByTagName("tr");
+
+      for (let i = 1; i < rows.length; i++) { 
+        let cells = rows[i].getElementsByTagName("td");
+        let nama = cells[2].innerText.toLowerCase(); 
+        rows[i].style.display = nama.includes(input) ? "" : "none";
+      }
+    }
+  </script>
+
+  <script>
+  function toggleMenu() {
+    const nav = document.querySelector("nav ul");
+    nav.classList.toggle("show");
+  }
+  </script>
+
+  <script>
+  if (localStorage.getItem("isLoggedIn") !== "true") {
+    window.location.href = "index.html";
+  }
+
+  function logout() {
+    localStorage.removeItem("isLoggedIn");
+    window.location.href = "index.html";
+  }
+</script>
+</body>
+</html>
