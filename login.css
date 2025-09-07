@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@400;500&display=swap'); 
+/* ini buat manggil font dari Google Fonts (Montserrat & Poppins) */
+
+/* --- Styling dasar halaman --- */
+body {
+  font-family: 'Poppins', sans-serif;                           /* huruf default pake Poppins */
+  margin: 0;                                                    /* hapus jarak luar (biar mepet layar) */
+  padding: 0;                                                   /* hapus jarak dalam */
+  height: 100vh;                                                /* tinggi penuh 1 layar */
+  display: flex;                                                /* biar bisa rapihin posisi pake flexbox */
+  justify-content: center;                                      /* posisi tengah kiri-kanan */
+  align-items: center;                                          /* posisi tengah atas-bawah */
+  background: linear-gradient(to right, #a8dadc, #457b9d);  /* warna background gradasi */
+}
+
+/* --- Judul login --- */
+.login-title {
+  text-align: center;        /* teks judul ditaruh di tengah */
+  margin-bottom: 20px;       /* kasih jarak bawah */
+}
+
+.login-title h1 {
+  font-family: 'Montserrat', sans-serif;   /* font beda (lebih tegas) */
+  font-size: 35px;                         /* ukuran huruf gede */
+  font-weight: 700;                        /* tebal banget */
+  color: #2c3e50;                        /* warna teks abu tua */
+  margin: 0;                               /* hapus jarak default */
+  line-height: 1.2;                        /* tinggi antar baris rapet */
+  white-space: nowrap;                     /* cegah teks turun ke baris berikutnya */
+}
+
+.login-title h2 {
+  font-family: 'Montserrat', sans-serif;   /* sama kayak h1 */
+  font-size: 24px;                         /* lebih kecil dari h1 */
+  font-weight: 600;                        /* tebal tapi gak setebel h1 */
+  color: #2c3e50;                        /* warna abu tua */
+  margin: 3px 0 10px;                      /* jarak atas 3px, bawah 10px */
+  line-height: 1.2;                        /* tinggi antar baris rapet */
+}
+
+/* --- Kotak login (bungkusnya) --- */
+.login-container {
+  background: #fff;                            /* warna kotaknya putih */
+  padding: 60px;                                 /* jarak isi sama pinggir 60px */
+  border-radius: 18px;                           /* sudut kotak tumpul */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);    /* kasih bayangan biar ada efek timbul */
+  width: 90%;                                    /* lebar fleksibel (90% layar) */
+  max-width: 600px;                              /* tapi gak boleh lebih dari 600px */
+  text-align: center;                            /* isi kotak rata tengah */
+  box-sizing: border-box;                        /* biar padding gak bikin kotak melar */
+}
+
+/* --- Form login --- */
+.login-form {
+  display: flex;                         /* pakai flexbox */
+  flex-direction: column;                /* elemen disusun ke bawah */
+  text-align: left;                      /* teks label rata kiri */
+  font-size: 18px;                       /* ukuran huruf lumayan gede */
+}
+
+.login-form label {
+  font-weight: bold;                     /* teks label ditebelin */
+  margin-bottom: 8px;                    /* jarak bawah */
+  color: #333;                         /* warna abu gelap */
+  font-size: 18px;                       /* ukuran huruf */
+}
+
+.login-form input {
+  padding: 18px;                         /* dalamannya longgar */
+  margin-bottom: 22px;                   /* kasih jarak antar input */
+  border: 1px solid #ccc;              /* garis pinggir abu muda */
+  border-radius: 12px;                   /* sudut agak bulat */
+  outline: none;                         /* pas klik gak ada garis default */
+  transition: 0.3s;                      /* kasih animasi halus */
+  font-size: 18px;                       /* ukuran huruf */
+}
+
+.login-form input:focus {
+  border-color: #457b9d;                      /* kalau diklik, border jadi biru */
+  box-shadow: 0 0 8px rgba(69,123,157,0.5);   /* kasih efek glow biru */
+}
+
+/* --- Tombol login --- */
+.btn-login {
+  padding: 18px;                         /* tombol agak gede */
+  background: #1d3557;                 /* warna biru tua */
+  color: #fff;                         /* tulisan putih */
+  border: none;                          /* tanpa garis pinggir */
+  border-radius: 12px;                   /* sudut tombol bulat */
+  cursor: pointer;                       /* pas diarahkan jadi tangan */
+  transition: 0.3s;                      /* animasi halus */
+  font-size: 18px;                       /* ukuran huruf tombol */
+  font-weight: bold;                     /* huruf ditebelin */
+}
+
+.btn-login:hover {
+  background: #457b9d;                   /* kalau kursor diarahkan diatas button, jadi biru muda */
+}
+
+/* --- Footer text (teks kecil di bawah) --- */
+.footer-text {
+  margin-top: 22px;              /* jarak atas */
+  font-size: 18px;               /* ukuran font agak kecil */
+  color: #666;                 /* warna abu */
+}
+
+/* --- Responsif (supaya menyesuaikan layar HP & tablet) --- */
+@media (max-width: 768px) {
+  .login-container {
+    padding: 40px;          /* padding diperkecil */
+  }
+
+  .login-title h1 {
+    font-size: 32px;        /* judul lebih kecil */
+  }
+
+  .login-title h2 {
+    font-size: 24px;        /* subjudul lebih kecil */
+  }
+
+  .login-form label,
+  .login-form input,
+  .btn-login {
+    font-size: 16px;       /* huruf lebih kecil */
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    padding: 25px;         /* kotak makin kecil */
+  }
+
+  .login-title h1 {
+    font-size: 26px;       /* judul makin kecil */
+  }
+
+  .login-title h2 {
+    font-size: 20px;       /* subjudul makin kecil */
+  }
+
+  .login-form label,
+  .login-form input,
+  .btn-login {
+    font-size: 14px;        /* huruf kecil */
+    padding: 12px;          /* tombol & input lebih ramping */
+  }
+
+  .footer-text {
+    font-size: 14px;        /* teks footer kecil */
+  }
+}
